@@ -1,0 +1,22 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<form method="post" class="form-inline">
+    {%csrf_token%}
+  <input class="form-control mr-sm-2" type="search" name="name" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+<div class="container">
+    {%for student in students %}
+    <div class="row mt-3">
+        <div class="col-3">{{student.id}}</div>
+        <div class="col-3">{{student.name}}</div>
+        <div class="col-3">{{student.email}}</div>
+        <div class="row col-3">
+            <div class="col-6"><a class="btn btn-danger" href="{%url 'deletestud' student.id%}">Delete</a></div>
+            <div class="col-6"><a class="btn btn-outline-info" href="{%url 'updatestud' student.id%}">Update</a></div>
+        </div>
+
+    </div>
+    {%endfor%}
+</div>
+{% endblock %}
