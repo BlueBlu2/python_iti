@@ -16,8 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from amazon.views import home, contactus, aboutus, home_name, show_data, registerPage, loginPage,logout
-from affairs.views import create_stud, all_stud,delete_stud,update_stud
-
+from affairs.views import create_stud, all_stud,delete_stud,update_stud,AddTrainee, AddTraineeModelForm,Tracklist#trackeCreateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/',home,name='home'),
@@ -33,4 +32,9 @@ urlpatterns = [
     path('allstudents', all_stud, name='allstudent'),
     path('deletestud/<id>', delete_stud, name='deletestud'),
     path('updatestud/<id>', update_stud, name='updatestud'),
+    path('AddTrainee', AddTrainee.as_view(), name='AddTrainee'),
+    path('AddTraineeModel', AddTraineeModelForm.as_view(), name='AddTraineeModelForm'),
+    path('Tracklist', Tracklist.as_view(), name='Tracklist'),
+    #path('trackeCreateView', trackeCreateView.as_view(), name='trackeCreateView'),
+    #path('AddTrainee', AddTraineeFun, name='AddTraineeFun'),
 ]

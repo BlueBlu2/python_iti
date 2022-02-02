@@ -7,11 +7,11 @@
 </form>
 <div class="container">
     {%for student in students %}
-    <div class="row mt-3">
+    <div class="row mt-3 border p-2 rounded">
         <div class="col-3">{{student.id}}</div>
         <div class="col-3">{{student.name}}</div>
         <div class="col-3">{{student.email}}</div>
-        <div class="row col-3">
+        <div class="row col-3 ">
             <div class="col-6"><a class="btn btn-danger" href="{%url 'deletestud' student.id%}">Delete</a></div>
             <div class="col-6"><a class="btn btn-outline-info" href="{%url 'updatestud' student.id%}">Update</a></div>
         </div>
